@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<VBox xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.jasanex.pro.controller.StammdatenController" spacing="18" styleClass="workspace">
+  <Label text="Stammdaten verwalten" styleClass="page-title"/>
+  <Label text="Mitarbeiter, Fahrzeuge und Handys deines Restaurants." styleClass="muted"/>
+  <HBox spacing="10"><Button text="+ Neu anlegen" onAction="#neu" styleClass="primary"/><Button text="Bearbeiten" onAction="#bearbeiten"/><Button text="Löschen" onAction="#loeschen" styleClass="logout"/></HBox>
+  <TabPane fx:id="tabs" tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
+    <Tab text="Mitarbeiter"><TableView fx:id="personal"/></Tab>
+    <Tab text="Fahrzeuge"><TableView fx:id="fahrzeuge"/></Tab>
+    <Tab text="Handys"><TableView fx:id="handys"/></Tab>
+  </TabPane>
+  <Label text="Bestehende Historien werden nicht gelöscht. Mitarbeiter können stattdessen auf INAKTIV gesetzt werden." wrapText="true" styleClass="muted"/>
+</VBox>

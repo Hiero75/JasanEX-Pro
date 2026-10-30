@@ -1,13 +1,10 @@
 package de.JansanEX.JasanEX_Pro;
 
-/**
- * Hello world!
- *
- */
-public class App 
+/** Bestehender Eclipse-Einstieg; delegiert an die JavaFX-Anwendung. */
+public class App
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
+        de.jasanex.pro.app.Main.main(args);
     }
 }

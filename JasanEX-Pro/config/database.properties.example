@@ -1,0 +1,14 @@
+# Kopieren nach config/database.properties (wird von Git ignoriert).
+# Alternativ Umgebungsvariablen JASANEX_DB_USER usw. setzen.
+db.host=127.0.0.1
+db.port=3306
+db.name=jasanex-pro-test
+db.user=
+db.password=
+# Bei mehreren Restaurants zwingend setzen; sonst wird das einzige ermittelt.
+restaurant.id=
+# AKTIV ist im geprüften lokalen Schema der Standardstatus.
+auth.activeStatus=AKTIV
+auth.role.admin=Admin
+auth.role.manager=Manager
+auth.role.head=Head

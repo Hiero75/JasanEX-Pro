@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.jasanex.pro.controller.LoginController" styleClass="login-root">
+  <top><HBox styleClass="login-top" alignment="CENTER_LEFT" spacing="12"><Label text="JasanEX Pro" styleClass="on-dark,brand-title"/><Region HBox.hgrow="ALWAYS"/><Label text="GASTRO MANAGEMENT SYSTEM" styleClass="on-dark-muted"/></HBox></top>
+  <center><HBox alignment="CENTER" spacing="65" styleClass="login-content">
+    <VBox alignment="CENTER_LEFT" spacing="24" prefWidth="390">
+      <ImageView fitWidth="300" preserveRatio="true" smooth="true"><image><Image url="@../images/logo-light.png"/></image></ImageView>
+      <Label text="Dein Betrieb.&#10;Alles im Blick." styleClass="hero-title"/>
+      <Label text="Die Grundlage für einen organisierten Restaurantalltag – Personal, Zeiten und Ressourcen an einem Ort." wrapText="true" styleClass="hero-copy"/>
+      <Label text="VERSION 0.2  /  DEIN RESTAURANTBETRIEB" styleClass="on-dark-muted"/>
+    </VBox>
+    <VBox spacing="15" maxWidth="370" prefWidth="370" styleClass="login-card">
+      <Label text="Willkommen zurück" styleClass="login-title"/>
+      <Label text="Melde dich mit deinem Mitarbeiterkonto an." wrapText="true" styleClass="on-dark-muted"/>
+      <Label text="Mitarbeiterkürzel" styleClass="on-dark" labelFor="$kuerzel"/>
+      <TextField fx:id="kuerzel" promptText="Dein Kürzel" onAction="#login"/>
+      <Label text="Passwort" styleClass="on-dark" labelFor="$password"/>
+      <PasswordField fx:id="password" promptText="Dein Passwort" onAction="#login"/>
+      <Label fx:id="error" wrapText="true" minHeight="42" styleClass="error"/>
+      <Button fx:id="loginButton" text="Anmelden  →" onAction="#login" defaultButton="true" maxWidth="Infinity" styleClass="primary"/>
+      <ProgressIndicator fx:id="progress" prefWidth="24" prefHeight="24" visible="false" managed="false"/>
+      <Separator/>
+      <Label text="Zugang für Head, Manager und Admin" styleClass="on-dark-muted" wrapText="true"/>
+    </VBox>
+  </HBox></center>
+  <bottom><HBox styleClass="login-top"><Label text="JasanEX Pro  •  Restaurantmanagement" styleClass="on-dark-muted"/><Region HBox.hgrow="ALWAYS"/><Label text="0.2.0-SNAPSHOT" styleClass="on-dark-muted"/></HBox></bottom>
+</BorderPane>

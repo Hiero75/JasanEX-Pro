@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.jasanex.pro.controller.DashboardController" styleClass="dashboard">
+  <top><VBox>
+    <HBox styleClass="title-bar" spacing="12" alignment="CENTER_LEFT"><Label text="JasanEX Pro  /  0.2" styleClass="on-dark"/><Region HBox.hgrow="ALWAYS"/><Label text="Restaurant:" styleClass="on-dark-muted"/><Label fx:id="restaurant" styleClass="on-dark"/><Label text="   Geschäftstag:" styleClass="on-dark-muted"/><Label fx:id="businessDay" styleClass="on-dark"/></HBox>
+    <HBox styleClass="status-bar" spacing="18" alignment="CENTER_LEFT">
+      <ImageView fitWidth="165" preserveRatio="true"><image><Image url="@../images/logo-light.png"/></image></ImageView>
+      <Separator orientation="VERTICAL"/>
+      <VBox spacing="4"><Label fx:id="username" styleClass="on-dark,brand-title"/><Label fx:id="role" styleClass="role-badge"/></VBox>
+      <Region HBox.hgrow="ALWAYS"/>
+      <VBox styleClass="clock-box" alignment="CENTER" spacing="3"><Label fx:id="clock" styleClass="clock"/><Label text="EUROPE / BERLIN" styleClass="on-dark-muted"/></VBox>
+      <Button fx:id="logoutButton" text="Abmelden" onAction="#logout" styleClass="logout"/>
+      <Button text="☰" onAction="#toggleNavigation" styleClass="menu-button" accessibleText="Navigation öffnen oder schließen"/>
+    </HBox>
+    <HBox styleClass="toolbar" alignment="CENTER_LEFT" spacing="12">
+      <Button text="Dashboard" onAction="#showOverview"/>
+      <Button fx:id="masterButton" text="Stammdaten" onAction="#showMaster"/>
+      <Button fx:id="checkInButton" text="+ Mitarbeiter einstempeln" onAction="#checkIn" styleClass="checkin-button"/>
+      <Region HBox.hgrow="ALWAYS"/>
+      <ProgressIndicator fx:id="progress" prefWidth="22" prefHeight="22" visible="false" managed="false"/>
+      <Button fx:id="refreshButton" text="Aktualisieren" onAction="#refresh"/>
+    </HBox>
+  </VBox></top>
+  <center><StackPane><ScrollPane fx:id="overview" fitToWidth="true" hbarPolicy="NEVER"><content><VBox spacing="20" styleClass="workspace">
+    <VBox spacing="6"><Label text="Willkommen in deinem Dashboard" styleClass="page-title"/><Label text="Dein Restaurant. Dein Team. Ein gemeinsamer Überblick." styleClass="muted"/></VBox>
+    <HBox spacing="18">
+      <VBox styleClass="metric-card" spacing="8" HBox.hgrow="ALWAYS"><Label text="MITARBEITERSTAMMDATEN" styleClass="muted"/><Label fx:id="staffCount" styleClass="metric"/><Label text="Im Arbeitsspeicher geladen" styleClass="muted"/></VBox>
+      <VBox styleClass="metric-card" spacing="8" HBox.hgrow="ALWAYS"><Label text="OFFENE ZEITERFASSUNGEN" styleClass="muted"/><Label fx:id="shiftCount" styleClass="metric"/><Label text="Bestehende Einträge eingelesen" styleClass="muted"/></VBox>
+    </HBox>
+    <VBox fx:id="categories" spacing="18"/>
+  </VBox></content></ScrollPane>
+  <fx:include fx:id="master" source="stammdaten.fxml" visible="false" managed="false"/>
+  </StackPane></center>
+  <right><VBox fx:id="navigation" prefWidth="255" spacing="20" styleClass="navigation" visible="false" managed="false">
+    <Label text="NAVIGATION" styleClass="on-dark-muted"/><Button text="Dashboard" onAction="#showOverview"/><Separator/><Label text="SPÄTERE AUSBAUSTUFEN" styleClass="on-dark-muted"/><Label text="Zeitkorrekturen" styleClass="on-dark-muted"/><Label text="Mitarbeiter-Zeitkonten" styleClass="on-dark-muted"/><Label text="Änderungsprotokoll-Ansicht" styleClass="on-dark-muted"/>
+  </VBox></right>
+  <bottom><VBox spacing="6" styleClass="footer"><Label fx:id="message" wrapText="true"/><HBox><Label fx:id="syncStatus" text="Daten werden geladen …" styleClass="muted"/><Region HBox.hgrow="ALWAYS"/><Label text="JasanEX Pro · 0.2.0-SNAPSHOT" styleClass="muted"/></HBox></VBox></bottom>
+</BorderPane>
